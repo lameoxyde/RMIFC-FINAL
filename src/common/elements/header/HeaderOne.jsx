@@ -42,12 +42,7 @@ const HeaderOne = ({ pClass, darkLogo, lightLogo, postData, meta }) => {
                       className="dark-logo"
                       width={metaData.favicon.width}
                       height={metaData.favicon.height}
-                      src={
-                        (colorMode === "Dark"
-                          ? lightLogo || metaData.favicon.img
-                          : darkLogo || metaData.favicon.img) ||
-                        "/images/logo/logo-black.webp"
-                      }
+                      src={logo}
                       alt={metaData.favicon.alt}
                     />
                   </a>
