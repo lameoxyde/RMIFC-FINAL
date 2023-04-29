@@ -11,7 +11,7 @@ const nextConfig = {
   // },
   images: {
     loader: "default",
-    domains: ["localhost"],
+    domains: ["localhost", "backend.crfimmadagascar.org"],
   },
   redirects() {
     return [
