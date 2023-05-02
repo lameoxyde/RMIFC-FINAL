@@ -122,15 +122,15 @@ export async function getServerSideProps({ params }) {
       "articles.category.cover",
     ],
   });
-  if (!matchingAuthors.data[0]) {
-    return {
-      redirect: {
-        destination: "/404",
-        permanent: false,
-        // statusCode: 301
-      },
-    };
-  }
+  // if (!matchingAuthors.data[0]) {
+  //   return {
+  //     redirect: {
+  //       destination: "/404",
+  //       permanent: false,
+  //       // statusCode: 301
+  //     },
+  //   };
+  // }
   const GlobalMeta = await getGlobalMeta();
 
   const content = await markdownToHtml(

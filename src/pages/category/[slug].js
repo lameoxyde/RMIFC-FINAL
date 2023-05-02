@@ -63,15 +63,15 @@ export async function getServerSideProps({ params }) {
     ],
   });
 
-  if (!matchingCategories.data[0]) {
-    return {
-      redirect: {
-        destination: "/404",
-        permanent: false,
-        // statusCode: 301
-      },
-    };
-  }
+  // if (!matchingCategories.data[0]) {
+  //   return {
+  //     redirect: {
+  //       destination: "/404",
+  //       permanent: false,
+  //       // statusCode: 301
+  //     },
+  //   };
+  // }
   const GlobalMeta = await getGlobalMeta();
 
   const content = await markdownToHtml(
