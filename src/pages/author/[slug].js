@@ -32,7 +32,10 @@ const AuthorArchive = ({ authorData, allPosts, meta }) => {
                     <Link href="#">
                       <a>
                         <Image
-                          src={getStrapiMedia(authorData.attributes.avatar)}
+                          src={getStrapiMedia(
+                            authorData.attributes.avatar,
+                            "thumbnail"
+                          )}
                           alt={authorData.attributes.name}
                           height={105}
                           width={105}
@@ -79,7 +82,10 @@ const AuthorArchive = ({ authorData, allPosts, meta }) => {
               </div>
             </div>
             <div className="col-lg-8 col-xl-8">
-              <PostLayoutTwo dataPost={authorData} show="5" />
+              <PostLayoutTwo
+                dataPost={authorData.attributes.articles.data}
+                show="5"
+              />
             </div>
             <div className="col-lg-4 col-xl-4 mt_md--40 mt_sm--40">
               <SidebarOne dataPost={allPosts} />
@@ -122,15 +128,15 @@ export async function getServerSideProps({ params }) {
       "articles.category.cover",
     ],
   });
-  // if (!matchingAuthors.data[0]) {
-  //   return {
-  //     redirect: {
-  //       destination: "/404",
-  //       permanent: false,
-  //       // statusCode: 301
-  //     },
-  //   };
-  // }
+  if (!matchingAuthors.data[0]) {
+    return {
+      redirect: {
+        destination: "/404",
+        permanent: false,
+        // statusCode: 301
+      },
+    };
+  }
   const GlobalMeta = await getGlobalMeta();
 
   const content = await markdownToHtml(

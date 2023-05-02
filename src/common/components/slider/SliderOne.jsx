@@ -64,7 +64,10 @@ const SliderOne = ({ postData }) => {
                           <a>
                             <Layout>
                               <Image
-                                src={getStrapiMedia(data.attributes.cover)}
+                                src={getStrapiMedia(
+                                  data.attributes.cover,
+                                  "medium"
+                                )}
                                 alt={data.attributes.cover.data.attributes.name}
                                 height={615}
                                 width={1230}
@@ -118,7 +121,8 @@ const SliderOne = ({ postData }) => {
                           <div className="post-author-avatar border-rounded">
                             <Image
                               src={getStrapiMedia(
-                                data.attributes.author.data.attributes.avatar
+                                data.attributes.author.data.attributes.avatar,
+                                "thumbnail"
                               )}
                               alt={data.attributes.author.data.attributes.name}
                               height={50}

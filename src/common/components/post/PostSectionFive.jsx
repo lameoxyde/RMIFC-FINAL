@@ -83,7 +83,8 @@ const PostSectionFive = ({ postData }) => {
                               <a>
                                 <Image
                                   src={getStrapiMedia(
-                                    firstPost.attributes.cover
+                                    firstPost.attributes.cover,
+                                    "small"
                                   )}
                                   alt={firstPost.title}
                                   height={660}
@@ -135,7 +136,8 @@ const PostSectionFive = ({ postData }) => {
                                   <Image
                                     src={getStrapiMedia(
                                       firstPost.attributes.author.data
-                                        .attributes.avatar
+                                        .attributes.avatar,
+                                      "thumbnail"
                                     )}
                                     alt={firstPost.author_name}
                                     height={50}
@@ -204,7 +206,8 @@ const PostSectionFive = ({ postData }) => {
                                   <a>
                                     <Image
                                       src={getStrapiMedia(
-                                        data.attributes.cover
+                                        data.attributes.cover,
+                                        "small"
                                       )}
                                       alt={data.attributes.title}
                                       height={294}

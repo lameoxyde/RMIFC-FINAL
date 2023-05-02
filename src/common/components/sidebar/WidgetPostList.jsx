@@ -17,7 +17,7 @@ const WidgetPostList = ({ postData }) => {
                 <Link href={`/post/${data.attributes.slug}`}>
                   <a>
                     <Image
-                      src={getStrapiMedia(data.attributes.cover)}
+                      src={getStrapiMedia(data.attributes.cover, "thumbnail")}
                       alt={data.attributes.title}
                       height={100}
                       width={100}

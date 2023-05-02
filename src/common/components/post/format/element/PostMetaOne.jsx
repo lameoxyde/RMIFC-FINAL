@@ -16,7 +16,7 @@ const PostMetaOne = ({ metaData }) => {
               <div className="post-thumbnail">
                 <Layout>
                   <Image
-                    src={getStrapiMedia(metaData.attributes.cover)}
+                    src={getStrapiMedia(metaData.attributes.cover, "large")}
                     alt={metaData.attributes.title}
                     height={720}
                     width={1440}

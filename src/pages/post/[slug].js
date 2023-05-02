@@ -51,15 +51,15 @@ export async function getServerSideProps({ params }) {
   const allPosts = await getAllPosts();
   const GlobalMeta = await getGlobalMeta();
 
-  // if (!articlesRes.data[0]) {
-  //   return {
-  //     redirect: {
-  //       destination: "/404",
-  //       permanent: false,
-  //       // statusCode: 301
-  //     },
-  //   };
-  // }
+  if (!articlesRes.data[0]) {
+    return {
+      redirect: {
+        destination: "/404",
+        permanent: false,
+        // statusCode: 301
+      },
+    };
+  }
   const content = await markdownToHtml(
     articlesRes.data[0].attributes.blocks[0].body || ""
   );

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { getStrapiMedia } from "../../../../../lib/media";
 import { slugify } from "../../../utils";
 const PostLayoutTwo = ({ dataPost, postStart, show, bgColor }) => {
+  // dataPost.attributes.articles.data
   return (
     <>
       {dataPost.slice(postStart || 0, show).map((data) => (
@@ -20,7 +21,7 @@ const PostLayoutTwo = ({ dataPost, postStart, show, bgColor }) => {
               <Link href={`/post/${data.attributes.slug}`}>
                 <a>
                   <Image
-                    src={getStrapiMedia(data.attributes.cover)}
+                    src={getStrapiMedia(data.attributes.cover, "small")}
                     alt={data.attributes.title}
                     height={250}
                     width={295}

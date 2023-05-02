@@ -51,7 +51,7 @@ export default WidgetCategory;
 
 export async function getServerSideProps() {
   const cat = await getAllCategories();
-  console.log(cat);
+
   return {
     props: { cat: cat.data },
   };
