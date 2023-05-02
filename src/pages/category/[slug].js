@@ -25,13 +25,13 @@ const PostCategory = ({ postData, allPosts, meta }) => {
               />
             </div>
             <div className="col-lg-4 col-xl-4 mt_md--40 mt_sm--40">
-              {/* <SidebarOne dataPost={allPosts} /> */}
+              <SidebarOne dataPost={allPosts} />
             </div>
           </div>
         </div>
       </div>
-      {/* <InstagramOne parentClass="bg-color-grey" />
-      <FooterOne /> */}
+      {/* <InstagramOne parentClass="bg-color-grey" />*/}
+      <FooterOne />
     </>
   );
 };

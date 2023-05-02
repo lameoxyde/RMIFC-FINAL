@@ -1,6 +1,6 @@
 import PostMetaOne from "./element/PostMetaOne";
-// import PostAuthor from "./element/PostAuthor";
-// import SidebarTwo from "../../sidebar/SidebarTwo";
+import PostAuthor from "./element/PostAuthor";
+import SidebarTwo from "../../sidebar/SidebarTwo";
 import PostMetaTwo from "./element/PostMetaTwo";
 // import PostComment from "./element/PostComment";
 // import PostTagShare from "./element/PostTagShare";
@@ -42,13 +42,13 @@ const PostFormatStandard = ({ postData, allData }) => {
                     __html: postData.content,
                   }}
                 ></div>
-                {/* <PostTagShare postTags={postData} />
+                {/* <PostTagShare postTags={postData} /> */}
                 <PostAuthor dataAuthor={postData} />
-                <PostComment /> */}
+                {/* <PostComment />  */}
               </div>
             </div>
             <div className="col-lg-4">
-              {/* <SidebarTwo dataPost={allData} tagData={postData} /> */}
+              <SidebarTwo dataPost={allData} tagData={postData} />
             </div>
           </div>
         </div>

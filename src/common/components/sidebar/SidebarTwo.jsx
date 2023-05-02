@@ -13,22 +13,22 @@ const SidebarTwo = ({ dataPost, tagData }) => {
       <WidgetCategory catData={dataPost} />
       <WidgetSearch />
       <WidgetPostList postData={dataPost} />
-      <WidgetNewsletter />
+      {/* <WidgetNewsletter />
       <WidgetAd
         url="https://example.com/"
         image="/images/post-single/ads-01.webp"
         height={236}
         width={390}
-      />
-      <WidgetSocialShare />
-      <WidgetInstagramPost />
+      /> */}
+      {/* <WidgetSocialShare /> */}
+      {/* <WidgetInstagramPost />
       <WidgetTags postTag={tagData}/>
       <WidgetAd
         url="https://example.com/"
         image="/images/add-banner/banner-02.webp"
         height={778}
         width={390}
-      />
+      />  */}
     </div>
   );
 };

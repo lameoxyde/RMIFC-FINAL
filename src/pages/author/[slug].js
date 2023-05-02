@@ -93,8 +93,8 @@ const AuthorArchive = ({ authorData, allPosts, meta }) => {
           </div>
         </div>
       </div>
-      {/*<InstagramOne parentClass="bg-color-grey" />
-      <FooterOne /> */}
+      {/*<InstagramOne parentClass="bg-color-grey" />*/}
+      <FooterOne />
     </>
   );
 };

@@ -69,8 +69,8 @@ const SliderOne = ({ postData }) => {
                                   "medium"
                                 )}
                                 alt={data.attributes.cover.data.attributes.name}
-                                height={615}
-                                width={1230}
+                                height={720}
+                                width={1440}
                                 priority
                                 placeholder="blur"
                                 blurDataURL={`data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mPcXw8AAgMBQLfkYc4AAAAASUVORK5CYII=`}
