@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Layout from "../layout/";
 import Slider from "react-slick";
+import Moment from "react-moment";
 import { slugify } from "../../utils";
 import { getStrapiMedia } from "../../../../lib/media";
 
@@ -151,7 +152,11 @@ const SliderOne = ({ postData }) => {
                               </Link>
                             </h6>
                             <ul className="post-meta-list">
-                              <li>{data.attributes.publishedAt}</li>
+                              <li>
+                                <Moment format="MMMM Do YYYY, h:mm:ss a">
+                                  {data.attributes.publishedAt}
+                                </Moment>
+                              </li>
                               {/* <li>{data.post_views}</li> */}
                             </ul>
                           </div>

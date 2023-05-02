@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getStrapiMedia } from "../../../../lib/media";
+import Moment from "react-moment";
 const WidgetPostList = ({ postData }) => {
   return (
     <div className="axil-single-widget widget widget_postlist mb--30">
@@ -36,7 +37,11 @@ const WidgetPostList = ({ postData }) => {
               </h6>
               <div className="post-meta">
                 <ul className="post-meta-list">
-                  <li>{data.attributes.publishedAt}</li>
+                  <li>
+                    <Moment format="MMMM Do YYYY, h:mm:ss a">
+                      {data.attributes.publishedAt}
+                    </Moment>
+                  </li>
                   {/* <li>{data.post_views}</li> */}
                 </ul>
               </div>

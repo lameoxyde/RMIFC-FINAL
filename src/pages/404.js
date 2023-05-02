@@ -59,7 +59,7 @@ export default Error404;
 
 export async function getStaticProps() {
   const allPosts = await getAllPosts();
-  console.log(allPosts);
+
   const meta = await getGlobalMeta();
   return {
     props: { allPosts: allPosts.data, meta: meta.data },

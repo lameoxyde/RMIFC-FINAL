@@ -3,6 +3,7 @@ import Link from "next/link";
 import { slugify } from "../../../../utils";
 import { getStrapiMedia } from "../../../../../../lib/media";
 import Layout from "../../../layout";
+import Moment from "react-moment";
 const PostMetaOne = ({ metaData }) => {
   return (
     <div className="banner banner-single-post post-formate post-standard alignwide">
@@ -85,7 +86,11 @@ const PostMetaOne = ({ metaData }) => {
                         </Link>
                       </h6>
                       <ul className="post-meta-list">
-                        <li>{metaData.attributes.publishedAt}</li>
+                        <li>
+                          <Moment format="MMMM Do YYYY, h:mm:ss a">
+                            {metaData.attributes.publishedAt}
+                          </Moment>
+                        </li>
                         {/* <li>{metaData.post_views}</li> */}
                       </ul>
                     </div>
