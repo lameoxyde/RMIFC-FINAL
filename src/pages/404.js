@@ -6,29 +6,26 @@ import HeaderOne from "../common/elements/header/HeaderOne";
 import HeadTitle from "../common/elements/head/HeadTitle";
 import { fetchAPI, getAllPosts } from "../../lib/api2";
 import { getGlobalMeta } from "../../lib/api2";
+import logo from "../../public/images/logo/404.png";
 const Error404 = ({ allPosts, meta }) => {
   return (
     <>
       {/* <HeadTitle pageTitle={meta} /> */}
-      <HeaderOne
+      {/* <HeaderOne
         postData={allPosts}
         meta={meta}
         pClass="header-light header-sticky header-with-shadow"
-      />
-      <div
+      /> */}
+      <div className="error-area bg-color-grey">
+        {/* <div
         className="error-area bg-color-grey"
         style={{ backgroundImage: "url('/images/bg/bg-image-4.webp')" }}
-      >
+      > */}
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
               <div className="inner">
-                <Image
-                  width={322}
-                  height={131}
-                  src="/images/others/404.webp"
-                  alt="Error Images"
-                />
+                <Image width={788} height={519} src={logo} alt="Error Images" />
                 <h1 className="title">Page not found!</h1>
                 <p>
                   Sorry, but the page you were looking for could not be found.
@@ -56,12 +53,3 @@ const Error404 = ({ allPosts, meta }) => {
 };
 
 export default Error404;
-
-export async function getStaticProps() {
-  const allPosts = await getAllPosts();
-
-  const meta = await getGlobalMeta();
-  return {
-    props: { allPosts: allPosts.data, meta: meta.data },
-  };
-}
