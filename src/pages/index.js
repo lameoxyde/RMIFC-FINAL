@@ -1,19 +1,29 @@
-// import InstagramOne from "../common/components/instagram/InstagramOne";
-import FooterOne from "../common/elements/footer/FooterOne";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
 import HeadTitle from "../common/elements/head/HeadTitle";
 import HeaderOne from "../common/elements/header/HeaderOne";
+import FooterOne from "../common/elements/footer/FooterOne";
 import { getAllPosts, getGlobalMeta } from "../../lib/api2";
-// import PostSectionOne from "../common/components/post/PostSectionOne";
-// import PostSectionTwo from "../common/components/post/PostSectionTwo";
-// import PostSectionThree from "../common/components/post/PostSectionThree";
-// import CategoryList from "../common/components/category/CategoryList";
-import PostSectionFour from "../common/components/post/PostSectionFour";
-// import SocialOne from "../common/components/social/SocialOne";
-import PostSectionFive from "../common/components/post/PostSectionFive";
-// import PostSectionSix from "../common/components/post/PostSectionSix";
-import SliderOne from "../common/components/slider/SliderOne";
 
 const HomeDefault = ({ allPosts, meta }) => {
+  const SliderOne = dynamic(
+    () => import("../common/components/slider/SliderOne"),
+    {
+      suspense: true,
+    }
+  );
+  const PostSectionFive = dynamic(
+    () => import("../common/components/post/PostSectionFive"),
+    {
+      suspense: true,
+    }
+  );
+  const PostSectionFour = dynamic(
+    () => import("../common/components/post/PostSectionFour"),
+    {
+      suspense: true,
+    }
+  );
   const videoPost = allPosts.filter(
     (post) => post.attributes.postFormat === "video"
   );
@@ -21,20 +31,20 @@ const HomeDefault = ({ allPosts, meta }) => {
   return (
     <>
       <HeadTitle pageTitle={meta} />
+
       <HeaderOne postData={allPosts} meta={meta} />
-      <SliderOne postData={allPosts} />
 
-      {/* <PostSectionOne postData={allPosts} />
-      <PostSectionTwo postData={allPosts} adBanner={true} />
-      <CategoryList cateData={allPosts} />
-      <PostSectionSix postData={allPosts} />
-      <SocialOne /> */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <SliderOne postData={allPosts} />
+      </Suspense>
 
-      <PostSectionFive postData={allPosts} />
-      <PostSectionFour postData={allPosts} adBanner={false} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <PostSectionFive postData={allPosts} />
+      </Suspense>
 
-      {/*<PostSectionThree postData={videoPost} heading="Featured Video" />
-      <InstagramOne parentClass="bg-color-grey" />*/}
+      <Suspense fallback={<div>Loading...</div>}>
+        <PostSectionFour postData={allPosts} adBanner={false} />
+      </Suspense>
 
       <FooterOne />
     </>
@@ -44,6 +54,10 @@ const HomeDefault = ({ allPosts, meta }) => {
 export default HomeDefault;
 
 export async function getServerSideProps(context) {
+  context.res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=10, stale-while-revalidate=59"
+  );
   const allPosts = await getAllPosts();
   const GlobalMeta = await getGlobalMeta();
   return {
