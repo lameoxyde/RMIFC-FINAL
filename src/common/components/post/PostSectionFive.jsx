@@ -10,11 +10,51 @@ import Moment from "react-moment";
 const filters = [
   {
     id: 1,
-    cate: "story",
+    cate: "MARITIME INCIDENT",
   },
   {
     id: 2,
-    cate: "nature",
+    cate: "ARMS TRAFFICKING SMUGGLING BY SEA",
+  },
+  {
+    id: 3,
+    cate: "MARINE ENVIRONMENT",
+  },
+  {
+    id: 4,
+    cate: "MARITIME CRITICAL INFRASCTRUCTURE",
+  },
+  {
+    id: 5,
+    cate: "MARITIME CYBERCRIMINALITY",
+  },
+  {
+    id: 6,
+    cate: "NATURAL EVENTS AND HADR",
+  },
+  {
+    id: 7,
+    cate: "OTHERS",
+  },
+  {
+    id: 8,
+    cate: "VIOLENT ACTS AT SEA",
+  },
+  {
+    id: 9,
+    cate: "WEAPON PROLIFERATION (PSI)",
+  },
+  {
+    id: 10,
+    cate: "YACHTING AND MARITIME TOURISM",
+  },
+  {
+    id: 11,
+    cate: "ILLEGAL UNREGULATED AND UNREPORTED FISHING BY SEA",
+  },
+  {
+    id: 12,
+    cate: "ILLEGAL MIGRATION AND HUMAN TRAFFICKING BY SEA",
   },
 ];
 
@@ -55,7 +95,7 @@ const PostSectionFive = ({ postData }) => {
   return (
     <div className="axil-post-grid-area axil-section-gap bg-color-grey">
       <div className="container">
-        <SectionTitleOne title="Pillars" />
+        <SectionTitleOne title="12 Pillars" />
         <div className="row">
           <div className="col-lg-12">
             <Tab.Container id="axilTab" defaultActiveKey={activeNav}>
@@ -83,8 +123,7 @@ const PostSectionFive = ({ postData }) => {
                               <a>
                                 <Image
                                   src={getStrapiMedia(
-                                    firstPost.attributes.cover,
-                                    "small"
+                                    firstPost.attributes.cover
                                   )}
                                   alt={firstPost.title}
                                   height={660}
@@ -136,8 +175,7 @@ const PostSectionFive = ({ postData }) => {
                                   <Image
                                     src={getStrapiMedia(
                                       firstPost.attributes.author.data
-                                        .attributes.avatar,
-                                      "thumbnail"
+                                        .attributes.avatar
                                     )}
                                     alt={firstPost.author_name}
                                     height={50}
@@ -206,8 +244,7 @@ const PostSectionFive = ({ postData }) => {
                                   <a>
                                     <Image
                                       src={getStrapiMedia(
-                                        data.attributes.cover,
-                                        "small"
+                                        data.attributes.cover
                                       )}
                                       alt={data.attributes.title}
                                       height={294}

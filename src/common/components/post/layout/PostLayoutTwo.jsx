@@ -21,7 +21,7 @@ const PostLayoutTwo = ({ dataPost, postStart, show, bgColor }) => {
               <Link href={`/post/${data.attributes.slug}`}>
                 <a>
                   <Image
-                    src={getStrapiMedia(data.attributes.cover, "small")}
+                    src={getStrapiMedia(data.attributes.cover)}
                     alt={data.attributes.title}
                     height={250}
                     width={295}

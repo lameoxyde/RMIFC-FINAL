@@ -12,8 +12,7 @@ const PostAuthor = ({ dataAuthor }) => {
             <a>
               <Image
                 src={getStrapiMedia(
-                  dataAuthor.attributes.author.data.attributes.avatar,
-                  "medium"
+                  dataAuthor.attributes.author.data.attributes.avatar
                 )}
                 alt={dataAuthor.attributes.author.data.attributes.name}
                 height={105}

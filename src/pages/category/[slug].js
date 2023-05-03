@@ -1,15 +1,28 @@
 import { getAllCategories, fetchAPI, getGlobalMeta } from "../../../lib/api2";
 import markdownToHtml from "../../../lib/markdownToHtml";
-import InstagramOne from "../../common/components/instagram/InstagramOne";
+import React, { useState } from "react";
+import ReactPaginate from "react-paginate";
+// import InstagramOne from "../../common/components/instagram/InstagramOne";
 import PostLayoutTwo from "../../common/components/post/layout/PostLayoutTwo";
 import BreadcrumbOne from "../../common/elements/breadcrumb/breadcrumbOne";
 import FooterOne from "../../common/elements/footer/FooterOne";
 import HeadTitle from "../../common/elements/head/HeadTitle";
 import HeaderOne from "../../common/elements/header/HeaderOne";
 import SidebarOne from "../../common/components/sidebar/SidebarOne";
-import { slugify } from "../../common/utils";
+// import { slugify } from "../../common/utils";
 
 const PostCategory = ({ postData, allPosts, meta }) => {
+  const [blogs] = useState(allPosts);
+  const [pageNumber, setPageNumber] = useState(0);
+
+  const blogsPerPage = 5;
+  const pageVisited = pageNumber * blogsPerPage;
+
+  const pageCount = Math.ceil(blogs.length / blogsPerPage);
+
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
   return (
     <>
       <HeadTitle pageTitle={meta} />
@@ -21,7 +34,19 @@ const PostCategory = ({ postData, allPosts, meta }) => {
             <div className="col-lg-8 col-xl-8">
               <PostLayoutTwo
                 dataPost={postData.attributes.articles.data}
-                show="5"
+                show={pageVisited + blogsPerPage}
+                postStart={pageVisited}
+              />
+              <ReactPaginate
+                previousLabel={<i className="fas fa-arrow-left"></i>}
+                nextLabel={<i className="fas fa-arrow-right"></i>}
+                pageCount={pageCount}
+                onPageChange={changePage}
+                containerClassName={"pagination"}
+                previousLinkClassName={"prev"}
+                nextLinkClassName={"next"}
+                disabledClassName={"disabled"}
+                activeClassName={"current"}
               />
             </div>
             <div className="col-lg-4 col-xl-4 mt_md--40 mt_sm--40">

@@ -64,10 +64,7 @@ const SliderOne = ({ postData }) => {
                           <a>
                             <Layout>
                               <Image
-                                src={getStrapiMedia(
-                                  data.attributes.cover,
-                                  "medium"
-                                )}
+                                src={getStrapiMedia(data.attributes.cover)}
                                 alt={data.attributes.cover.data.attributes.name}
                                 height={720}
                                 width={1440}
