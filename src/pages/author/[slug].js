@@ -3,12 +3,19 @@ import Image from "next/image";
 import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
 import markdownToHtml from "../../../lib/markdownToHtml";
-import { fetchAPI, getGlobalMeta } from "../../../lib/api2";
+import {
+  getAllCategories,
+  fetchAPI,
+  getGlobalMeta,
+  getAllPosts,
+} from "../../../lib/api2";
 import { getStrapiMedia } from "../../../lib/media";
+import InstagramOne from "../../common/components/instagram/InstagramOne";
 import FooterOne from "../../common/elements/footer/FooterOne";
 import HeaderOne from "../../common/elements/header/HeaderOne";
 import PostLayoutTwo from "../../common/components/post/layout/PostLayoutTwo";
 import SidebarOne from "../../common/components/sidebar/SidebarOne";
+import { slugify } from "../../common/utils";
 import HeadTitle from "../../common/elements/head/HeadTitle";
 
 const AuthorArchive = ({ authorData, allPosts, meta }) => {
@@ -107,7 +114,7 @@ const AuthorArchive = ({ authorData, allPosts, meta }) => {
           </div>
         </div>
       </div>
-
+      {/*<InstagramOne parentClass="bg-color-grey" />*/}
       <FooterOne />
     </>
   );
@@ -127,15 +134,10 @@ export default AuthorArchive;
 //     fallback: false,
 //   };
 // }
-export async function getServerSideProps(context) {
-  context.res.setHeader(
-    "Cache-Control",
-    "public, s-maxage=10, stale-while-revalidate=59"
-  );
-  const { slug } = context.query;
+export async function getServerSideProps({ params }) {
   const matchingAuthors = await fetchAPI("/authors", {
     filters: {
-      slug: slug,
+      slug: params.slug,
     },
     populate: ["author.avatar"],
     populate: [

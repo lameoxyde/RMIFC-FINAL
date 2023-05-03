@@ -1,10 +1,16 @@
 import markdownToHtml from "../../../lib/markdownToHtml";
-import { getAllPosts, fetchAPI, getGlobalMeta } from "../../../lib/api2";
+import {
+  getPostBySlug,
+  getAllPosts,
+  fetchAPI,
+  getGlobalMeta,
+} from "../../../lib/api2";
 import HeadTitle from "../../common/elements/head/HeadTitle";
 import HeaderOne from "../../common/elements/header/HeaderOne";
 import FooterOne from "../../common/elements/footer/FooterOne";
 import PostFormatStandard from "../../common/components/post/format/PostFormatStandard";
 import InstagramOne from "../../common/components/instagram/InstagramOne";
+// import Layout from "../../common/components/layout";
 const PostDetails = ({ post, allPosts, meta }) => {
   return (
     <>
@@ -23,15 +29,22 @@ const PostDetails = ({ post, allPosts, meta }) => {
 
 export default PostDetails;
 
-export async function getServerSideProps(context) {
-  context.res.setHeader(
-    "Cache-Control",
-    "public, s-maxage=10, stale-while-revalidate=59"
-  );
-  const { slug } = context.query;
+// export async function getStaticPaths() {
+//   const articlesRes = await fetchAPI("/articles", { fields: ["slug"] });
+
+//   return {
+//     paths: articlesRes.data.map((article) => ({
+//       params: {
+//         slug: article.attributes.slug,
+//       },
+//     })),
+//     fallback: false,
+//   };
+// }
+export async function getServerSideProps({ params }) {
   const articlesRes = await fetchAPI("/articles", {
     filters: {
-      slug: slug,
+      slug: params.slug,
     },
     populate: ["image", "category", "author.avatar", "cover", "blocks"],
   });
