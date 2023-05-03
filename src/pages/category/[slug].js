@@ -1,15 +1,13 @@
-import { getAllCategories, fetchAPI, getGlobalMeta } from "../../../lib/api2";
+import { fetchAPI, getGlobalMeta } from "../../../lib/api2";
 import markdownToHtml from "../../../lib/markdownToHtml";
 import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
-// import InstagramOne from "../../common/components/instagram/InstagramOne";
 import PostLayoutTwo from "../../common/components/post/layout/PostLayoutTwo";
 import BreadcrumbOne from "../../common/elements/breadcrumb/breadcrumbOne";
 import FooterOne from "../../common/elements/footer/FooterOne";
 import HeadTitle from "../../common/elements/head/HeadTitle";
 import HeaderOne from "../../common/elements/header/HeaderOne";
 import SidebarOne from "../../common/components/sidebar/SidebarOne";
-// import { slugify } from "../../common/utils";
 
 const PostCategory = ({ postData, allPosts, meta }) => {
   const [blogs] = useState(allPosts);
@@ -55,7 +53,6 @@ const PostCategory = ({ postData, allPosts, meta }) => {
           </div>
         </div>
       </div>
-      {/* <InstagramOne parentClass="bg-color-grey" />*/}
       <FooterOne />
     </>
   );
@@ -63,23 +60,15 @@ const PostCategory = ({ postData, allPosts, meta }) => {
 
 export default PostCategory;
 
-// export async function getStaticPaths() {
-//   const cateogryRes = await fetchAPI("/categories", { fields: ["slug"] });
-
-//   return {
-//     paths: cateogryRes.data.map((category) => ({
-//       params: {
-//         slug: category.attributes.slug,
-//       },
-//     })),
-//     fallback: false,
-//   };
-// }
-
-export async function getServerSideProps({ params }) {
+export async function getServerSideProps(context) {
+  context.res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=10, stale-while-revalidate=59"
+  );
+  const { slug } = context.query;
   const matchingCategories = await fetchAPI("/categories", {
     filters: {
-      slug: params.slug,
+      slug: slug,
     },
     populate: ["articles"],
     populate: [

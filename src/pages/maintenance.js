@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import SocialData from "../data/social/SocialData.json";
-import HeadTitle from "../common/elements/head/HeadTitle";
 import logo from "../../public/images/logo/rmifc.jpg";
 import maintenance from "../../public/images/others/underconstruction.jpg";
 const Maintenance = () => {
@@ -11,7 +10,6 @@ const Maintenance = () => {
 
   return (
     <>
-      {/* <HeadTitle pageTitle="Coming Soon"/> */}
       <div className="maintanence-area">
         <div className="container">
           <div className="row align-items-center">
