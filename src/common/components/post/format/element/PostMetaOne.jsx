@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { slugify } from "../../../../utils";
 import { getStrapiMedia } from "../../../../../../lib/media";
-import Layout from "../../../layout";
+
 import Moment from "react-moment";
 const PostMetaOne = ({ metaData }) => {
   return (
@@ -14,14 +14,12 @@ const PostMetaOne = ({ metaData }) => {
             <div className="content-block">
               {/* Start Post Thumbnail  */}
               <div className="post-thumbnail">
-                <Layout>
-                  <Image
-                    src={getStrapiMedia(metaData.attributes.cover)}
-                    alt={metaData.attributes.title}
-                    height={720}
-                    width={1440}
-                  />
-                </Layout>
+                <Image
+                  src={getStrapiMedia(metaData.attributes.cover)}
+                  alt={metaData.attributes.title}
+                  height={720}
+                  width={1440}
+                />
               </div>
               {/* End Post Thumbnail  */}
               {/* Start Post Content  */}

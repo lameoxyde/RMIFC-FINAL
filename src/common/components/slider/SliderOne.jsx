@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import Layout from "../layout/";
+
 import Slider from "react-slick";
 import Moment from "react-moment";
 import { slugify } from "../../utils";
@@ -62,17 +62,15 @@ const SliderOne = ({ postData }) => {
                       <div className="post-thumbnail">
                         <Link href={`/post/${data.attributes.slug}`}>
                           <a>
-                            <Layout>
-                              <Image
-                                src={getStrapiMedia(data.attributes.cover)}
-                                alt={data.attributes.cover.data.attributes.name}
-                                height={720}
-                                width={1440}
-                                priority
-                                placeholder="blur"
-                                blurDataURL={`data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mPcXw8AAgMBQLfkYc4AAAAASUVORK5CYII=`}
-                              />
-                            </Layout>
+                            <Image
+                              src={getStrapiMedia(data.attributes.cover)}
+                              alt={data.attributes.cover.data.attributes.name}
+                              height={720}
+                              width={1440}
+                              priority
+                              placeholder="blur"
+                              blurDataURL={`data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mPcXw8AAgMBQLfkYc4AAAAASUVORK5CYII=`}
+                            />
                           </a>
                         </Link>
                       </div>

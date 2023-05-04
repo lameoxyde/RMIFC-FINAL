@@ -1,29 +1,12 @@
-import dynamic from "next/dynamic";
-import { Suspense } from "react";
 import HeadTitle from "../common/elements/head/HeadTitle";
 import HeaderOne from "../common/elements/header/HeaderOne";
-import FooterOne from "../common/elements/footer/FooterOne";
 import { getAllPosts, getGlobalMeta } from "../../lib/api2";
+import SliderOne from "../common/components/slider/SliderOne";
+import PostSectionFive from "../common/components/post/PostSectionFive";
+import PostSectionFour from "../common/components/post/PostSectionFour";
 
+import FooterOne from "../common/elements/footer/FooterOne";
 const HomeDefault = ({ allPosts, meta }) => {
-  const SliderOne = dynamic(
-    () => import("../common/components/slider/SliderOne"),
-    {
-      suspense: true,
-    }
-  );
-  const PostSectionFive = dynamic(
-    () => import("../common/components/post/PostSectionFive"),
-    {
-      suspense: true,
-    }
-  );
-  const PostSectionFour = dynamic(
-    () => import("../common/components/post/PostSectionFour"),
-    {
-      suspense: true,
-    }
-  );
   const videoPost = allPosts.filter(
     (post) => post.attributes.postFormat === "video"
   );
@@ -34,17 +17,11 @@ const HomeDefault = ({ allPosts, meta }) => {
 
       <HeaderOne postData={allPosts} meta={meta} />
 
-      <Suspense fallback={<div>Loading...</div>}>
-        <SliderOne postData={allPosts} />
-      </Suspense>
+      <SliderOne postData={allPosts} />
 
-      <Suspense fallback={<div>Loading...</div>}>
-        <PostSectionFive postData={allPosts} />
-      </Suspense>
+      <PostSectionFive postData={allPosts} />
 
-      <Suspense fallback={<div>Loading...</div>}>
-        <PostSectionFour postData={allPosts} adBanner={false} />
-      </Suspense>
+      <PostSectionFour postData={allPosts} adBanner={false} />
 
       <FooterOne />
     </>
