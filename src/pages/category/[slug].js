@@ -76,14 +76,15 @@ export default PostCategory;
 //   };
 // }
 
-export async function getServerSideProps({ params }) {
+export async function getServerSideProps(context) {
   context.res.setHeader(
     "Cache-Control",
     "public, s-maxage=43200, stale-while-revalidate=60"
   );
+  const { slug } = context.query;
   const matchingCategories = await fetchAPI("/categories", {
     filters: {
-      slug: params.slug,
+      slug: slug,
     },
     populate: ["articles"],
     populate: [
@@ -106,9 +107,8 @@ export async function getServerSideProps({ params }) {
   }
   const GlobalMeta = await getGlobalMeta();
 
-  const content = await markdownToHtml(
-    matchingCategories.data[0].attributes.description || ""
-  );
+  const content =
+    (await matchingCategories.data[0].attributes.description) || "";
 
   return {
     props: {

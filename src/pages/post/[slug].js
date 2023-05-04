@@ -41,14 +41,15 @@ export default PostDetails;
 //     fallback: false,
 //   };
 // }
-export async function getServerSideProps({ params }) {
+export async function getServerSideProps(context) {
   context.res.setHeader(
     "Cache-Control",
     "public, s-maxage=43200, stale-while-revalidate=60"
   );
+  const { slug } = context.query;
   const articlesRes = await fetchAPI("/articles", {
     filters: {
-      slug: params.slug,
+      slug: slug,
     },
     populate: ["image", "category", "author.avatar", "cover", "blocks"],
   });
@@ -65,9 +66,11 @@ export async function getServerSideProps({ params }) {
     };
   }
 
-  const content = await markdownToHtml(
-    articlesRes.data[0].attributes.blocks[0].body || ""
-  );
+  const content = (await articlesRes.data[0].attributes.blocks[0].body) || "";
+
+  // const content = await markdownToHtml(
+  //   articlesRes.data[0].attributes.blocks[0].body || ""
+  // );
 
   return {
     props: {

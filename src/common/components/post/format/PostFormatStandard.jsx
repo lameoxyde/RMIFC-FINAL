@@ -4,8 +4,10 @@ import SidebarTwo from "../../sidebar/SidebarTwo";
 import PostMetaTwo from "./element/PostMetaTwo";
 // import PostComment from "./element/PostComment";
 // import PostTagShare from "./element/PostTagShare";
+import ReactMarkdown from "react-markdown";
 
 import { getStrapiMedia } from "../../../../../lib/media";
+import ImgURI_Strapi from "../../../../../lib/ImgUriMarkdown";
 const PostFormatStandard = ({ postData, allData }) => {
   const basePathLink =
     process.env.NODE_ENV === "production"
@@ -36,12 +38,13 @@ const PostFormatStandard = ({ postData, allData }) => {
               )}
 
               <div className="axil-post-details">
-                <div
-                  className="post-details-content"
-                  dangerouslySetInnerHTML={{
-                    __html: postData.content,
-                  }}
-                ></div>
+                <div className="post-details-content">
+                  <ReactMarkdown
+                    children={postData.content}
+                    escapeHtml={false}
+                    transformImageUri={ImgURI_Strapi}
+                  />
+                </div>
                 {/* <PostTagShare postTags={postData} /> */}
                 <PostAuthor dataAuthor={postData} />
                 {/* <PostComment />  */}

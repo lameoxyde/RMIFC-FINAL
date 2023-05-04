@@ -134,14 +134,15 @@ export default AuthorArchive;
 //     fallback: false,
 //   };
 // }
-export async function getServerSideProps({ params }) {
+export async function getServerSideProps(context) {
   context.res.setHeader(
     "Cache-Control",
     "public, s-maxage=43200, stale-while-revalidate=60"
   );
+  const { slug } = context.query;
   const matchingAuthors = await fetchAPI("/authors", {
     filters: {
-      slug: params.slug,
+      slug: slug,
     },
     populate: ["author.avatar"],
     populate: [
@@ -164,9 +165,11 @@ export async function getServerSideProps({ params }) {
   }
   const GlobalMeta = await getGlobalMeta();
 
-  const content = await markdownToHtml(
-    matchingAuthors.data[0].attributes.description || ""
-  );
+  const content = (await matchingAuthors.data[0].attributes.description) || "";
+
+  // const content = await markdownToHtml(
+  //   matchingAuthors.data[0].attributes.description || ""
+  // );
 
   return {
     props: {

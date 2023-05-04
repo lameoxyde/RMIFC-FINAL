@@ -3,7 +3,7 @@ import Image from "next/image";
 import { getStrapiMedia } from "../../../../../../lib/media";
 
 const PostAuthor = ({ dataAuthor }) => {
-  console.log(dataAuthor.attributes.author.data.attributes);
+  // console.log(dataAuthor.attributes.author.data.attributes);
   return (
     <div className="about-author">
       <div className="media">
