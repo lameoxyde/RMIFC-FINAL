@@ -49,7 +49,11 @@ const WidgetCategory = ({ catData, cat }) => {
 
 export default WidgetCategory;
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
+  context.res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=43200, stale-while-revalidate=60"
+  );
   const cat = await getAllCategories();
 
   return {

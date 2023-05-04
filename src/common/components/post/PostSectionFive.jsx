@@ -236,7 +236,7 @@ const PostSectionFive = ({ postData }) => {
                         {tabPostData.slice(1, 3).map((data) => (
                           <div
                             className="col-xl-12 col-lg-12 col-md-6 col-12"
-                            key={data.slug}
+                            key={data.attributes.slug}
                           >
                             <div className="content-block post-grid mt--30">
                               <div className="post-thumbnail">

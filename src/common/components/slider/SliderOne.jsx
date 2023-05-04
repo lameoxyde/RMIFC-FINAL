@@ -37,8 +37,11 @@ const SliderOne = ({ postData }) => {
 
   const slideSettings = {
     dots: false,
-    infinite: false,
-    speed: 800,
+    infinite: true,
+    speed: 500,
+    autoplaySpeed: 2000,
+    lazyLoad: true,
+    autoplay: true,
     fade: true,
     slidesToShow: 1,
     slidesToScroll: 1,

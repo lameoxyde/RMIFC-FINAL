@@ -42,6 +42,10 @@ export default PostDetails;
 //   };
 // }
 export async function getServerSideProps({ params }) {
+  context.res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=43200, stale-while-revalidate=60"
+  );
   const articlesRes = await fetchAPI("/articles", {
     filters: {
       slug: params.slug,
