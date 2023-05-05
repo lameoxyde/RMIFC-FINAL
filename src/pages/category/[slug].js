@@ -10,7 +10,8 @@ import HeadTitle from "../../common/elements/head/HeadTitle";
 import HeaderOne from "../../common/elements/header/HeaderOne";
 import SidebarOne from "../../common/components/sidebar/SidebarOne";
 // import { slugify } from "../../common/utils";
-
+import { Suspense } from "react";
+import Skeleton from "@mui/material/Skeleton";
 const PostCategory = ({ postData, allPosts, meta }) => {
   const [blogs] = useState(allPosts);
   const [pageNumber, setPageNumber] = useState(0);
@@ -32,11 +33,22 @@ const PostCategory = ({ postData, allPosts, meta }) => {
         <div className="container">
           <div className="row">
             <div className="col-lg-8 col-xl-8">
-              <PostLayoutTwo
-                dataPost={postData.attributes.articles.data}
-                show={pageVisited + blogsPerPage}
-                postStart={pageVisited}
-              />
+              <Suspense
+                fallback={
+                  <Skeleton
+                    variant="rect"
+                    animation="wave"
+                    width={1200}
+                    height={720}
+                  />
+                }
+              >
+                <PostLayoutTwo
+                  dataPost={postData.attributes.articles.data}
+                  show={pageVisited + blogsPerPage}
+                  postStart={pageVisited}
+                />
+              </Suspense>
               <ReactPaginate
                 previousLabel={<i className="fas fa-arrow-left"></i>}
                 nextLabel={<i className="fas fa-arrow-right"></i>}

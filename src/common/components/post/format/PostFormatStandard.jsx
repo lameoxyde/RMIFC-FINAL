@@ -41,7 +41,6 @@ const PostFormatStandard = ({ postData, allData }) => {
                 <div className="post-details-content">
                   <ReactMarkdown
                     children={postData.content}
-                    escapeHtml={false}
                     transformImageUri={ImgURI_Strapi}
                   />
                 </div>

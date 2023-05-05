@@ -1,4 +1,3 @@
-import markdownToHtml from "../../../lib/markdownToHtml";
 import {
   getPostBySlug,
   getAllPosts,

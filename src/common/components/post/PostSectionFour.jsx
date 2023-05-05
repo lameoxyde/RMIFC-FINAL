@@ -4,6 +4,7 @@ import PostLayoutTwo from "./layout/PostLayoutTwo";
 import { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import { getAllCategories } from "../../../../lib/api2";
+
 const PostSectionFour = ({ postData, adBanner }) => {
   const [blogs] = useState(postData);
   const [pageNumber, setPageNumber] = useState(0);
@@ -24,6 +25,7 @@ const PostSectionFour = ({ postData, adBanner }) => {
             {/* {adBanner === true ? <AddBanner img="/images/add-banner/banner-01.webp" height="210" width="810" /> : ""
             } */}
             {/* <PostLayoutTwo dataPost={postData} show="5" /> */}
+
             <PostLayoutTwo
               dataPost={postData}
               show={pageVisited + blogsPerPage}

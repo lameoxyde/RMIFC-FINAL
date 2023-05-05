@@ -5,11 +5,14 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 8080",
     "lint": "next lint"
   },
   "dependencies": {
     "@emailjs/browser": "^3.6.2",
+    "@emotion/react": "^11.10.8",
+    "@emotion/styled": "^11.10.8",
+    "@mui/material": "^5.12.3",
     "bootstrap": "^5.2.3",
     "fs": "^0.0.1-security",
     "gray-matter": "^4.0.3",
