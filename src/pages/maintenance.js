@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import SocialData from "../data/social/SocialData.json";
-import HeadTitle from "../common/elements/head/HeadTitle";
+// import HeadTitle from "../common/elements/head/HeadTitle";
 import logo from "../../public/images/logo/rmifc.jpg";
 import maintenance from "../../public/images/others/underconstruction.jpg";
 const Maintenance = () => {

@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import FooterOne from "../common/elements/footer/FooterOne";
-import HeaderOne from "../common/elements/header/HeaderOne";
-// import { getAllPosts } from "../../lib/api";
-import HeadTitle from "../common/elements/head/HeadTitle";
-import { fetchAPI, getAllPosts } from "../../lib/api2";
-import { getGlobalMeta } from "../../lib/api2";
+// import FooterOne from "../common/elements/footer/FooterOne";
+// import HeaderOne from "../common/elements/header/HeaderOne";
+// // import { getAllPosts } from "../../lib/api";
+// import HeadTitle from "../common/elements/head/HeadTitle";
+// import { fetchAPI, getAllPosts } from "../../lib/api2";
+// import { getGlobalMeta } from "../../lib/api2";
 import logo from "../../public/images/logo/404.png";
-const Error404 = ({ allPosts, meta }) => {
+const Error404 = () => {
   return (
     <>
       {/* <HeadTitle pageTitle={meta} /> */}
