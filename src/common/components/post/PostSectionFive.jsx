@@ -58,13 +58,12 @@ const filters = [
   },
 ];
 
-const defaultActiveCat = slugify(filters[0].cate);
+const defaultActiveCat = slugify(filters[7].cate);
 
 const PostSectionFive = ({ postData }) => {
   const defaultData = postData.filter(
     (post) =>
-      slugify(post.attributes.category.data.attributes.slug) ===
-      defaultActiveCat
+      slugify(post.attributes.category.data.attributes.slug) === "others"
   );
 
   const [activeNav, setActiveNav] = useState(defaultActiveCat);

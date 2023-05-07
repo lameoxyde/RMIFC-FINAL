@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <center>
         <h1>
-          <b style={{ "background-color": "red" }}>UNDER CONSTRUCTION</b>
+          <b>UNDER CONSTRUCTION</b>
         </h1>
       </center>
       <GoogleAnalytics trackPageViews />
