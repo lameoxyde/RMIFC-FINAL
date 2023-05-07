@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  basePath: "/public",
+  basePath:
+    process.env.NODE_ENV === "production"
+      ? process.env.NEXT_PUBLIC_BASEPATH
+      : "/public",
   // images: {
   //   loader: 'akamai',
   //   path: process.env.NEXT_PUBLIC_URL,

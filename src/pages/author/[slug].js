@@ -17,8 +17,7 @@ import PostLayoutTwo from "../../common/components/post/layout/PostLayoutTwo";
 import SidebarOne from "../../common/components/sidebar/SidebarOne";
 import { slugify } from "../../common/utils";
 import HeadTitle from "../../common/elements/head/HeadTitle";
-import { Suspense } from "react";
-import Skeleton from "@mui/material/Skeleton";
+
 const AuthorArchive = ({ authorData, allPosts, meta }) => {
   const [blogs] = useState(allPosts);
   const [pageNumber, setPageNumber] = useState(0);
@@ -92,22 +91,12 @@ const AuthorArchive = ({ authorData, allPosts, meta }) => {
               </div>
             </div>
             <div className="col-lg-8 col-xl-8">
-              <Suspense
-                fallback={
-                  <Skeleton
-                    variant="rect"
-                    animation="wave"
-                    width={1200}
-                    height={720}
-                  />
-                }
-              >
-                <PostLayoutTwo
-                  dataPost={authorData.attributes.articles.data}
-                  show={pageVisited + blogsPerPage}
-                  postStart={pageVisited}
-                />
-              </Suspense>
+              <PostLayoutTwo
+                dataPost={authorData.attributes.articles.data}
+                show={pageVisited + blogsPerPage}
+                postStart={pageVisited}
+              />
+
               <ReactPaginate
                 previousLabel={<i className="fas fa-arrow-left"></i>}
                 nextLabel={<i className="fas fa-arrow-right"></i>}

@@ -4,9 +4,9 @@ import { getAllPosts, getGlobalMeta } from "../../lib/api2";
 import SliderOne from "../common/components/slider/SliderOne";
 import PostSectionFive from "../common/components/post/PostSectionFive";
 import PostSectionFour from "../common/components/post/PostSectionFour";
-import { Suspense } from "react";
+
 import FooterOne from "../common/elements/footer/FooterOne";
-import Skeleton from "@mui/material/Skeleton";
+
 const HomeDefault = ({ allPosts, meta }) => {
   const videoPost = allPosts.filter(
     (post) => post.attributes.postFormat === "video"
@@ -19,15 +19,11 @@ const HomeDefault = ({ allPosts, meta }) => {
       <HeaderOne postData={allPosts} meta={meta} />
 
       <SliderOne postData={allPosts} />
-      <Suspense
-        fallback={
-          <Skeleton variant="rect" animation="wave" width={1980} height={720} />
-        }
-      >
-        <PostSectionFive postData={allPosts} />
 
-        <PostSectionFour postData={allPosts} adBanner={false} />
-      </Suspense>
+      <PostSectionFive postData={allPosts} />
+
+      <PostSectionFour postData={allPosts} adBanner={false} />
+
       <FooterOne />
     </>
   );
