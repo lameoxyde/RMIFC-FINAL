@@ -38,8 +38,8 @@ const WidgetPostList = ({ postData }) => {
               <div className="post-meta">
                 <ul className="post-meta-list">
                   <li>
-                    <Moment format="MMMM Do YYYY, h:mm:ss a">
-                      {data.attributes.publishedAt}
+                    <Moment format="MMMM Do YYYY">
+                      {data.attributes.date}
                     </Moment>
                   </li>
                   {/* <li>{data.post_views}</li> */}

@@ -100,8 +100,8 @@ const PostLayoutTwo = ({ dataPost, postStart, show, bgColor }) => {
                   </h6>
                   <ul className="post-meta-list">
                     <li>
-                      <Moment format="MMMM Do YYYY, h:mm:ss a">
-                        {data.attributes.publishedAt}
+                      <Moment format="MMMM Do YYYY">
+                        {data.attributes.date}
                       </Moment>
                     </li>
                     {/* <li>{data.read_time}</li> */}

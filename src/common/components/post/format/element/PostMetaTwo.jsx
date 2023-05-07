@@ -74,8 +74,8 @@ const PostMetaTwo = ({ metaData }) => {
                       </h6>
                       <ul className="post-meta-list">
                         <li>
-                          <Moment format="MMMM Do YYYY, h:mm:ss a">
-                            {metaData.attributes.publishedAt}
+                          <Moment format="MMMM Do YYYY">
+                            {metaData.attributes.date}
                           </Moment>
                         </li>
                         {/* <li>{metaData.post_views}</li> */}

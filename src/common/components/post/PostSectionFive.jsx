@@ -209,8 +209,8 @@ const PostSectionFive = ({ postData }) => {
                                   </h6>
                                   <ul className="post-meta-list">
                                     <li>
-                                      <Moment format="MMMM Do YYYY, h:mm:ss a">
-                                        {firstPost.attributes.publishedAt}
+                                      <Moment format="MMMM Do YYYY">
+                                        {firstPost.attributes.date}
                                       </Moment>
                                     </li>
                                     {/* <li>{firstPost.post_views}</li> */}
