@@ -5,13 +5,17 @@ const Document = () => {
   return (
     <Html>
       <Head>
-        <link
+        {/* <link
           rel="stylesheet"
           href={`${
             process.env.NODE_ENV === "production"
               ? process.env.NEXT_PUBLIC_BASEPATH ?? ""
               : ""
           }/css/font-awesome.css`}
+        /> */}
+        <link
+          rel="stylesheet"
+          href={`${process.env.NEXT_PUBLIC_BASEPATH}css/font-awesome.css`}
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
