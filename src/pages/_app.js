@@ -1,7 +1,8 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "../styles/style.scss";
+import GoogleAnalytics from "@bradgarropy/next-google-analytics";
+
 import ColorSwitcher from "../common/elements/color-switcher/ColorSwitcher";
-import { GoogleAnalytics } from "nextjs-google-analytics";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -11,9 +12,11 @@ function MyApp({ Component, pageProps }) {
           <b>UNDER CONSTRUCTION</b>
         </h1>
       </center>
-      <GoogleAnalytics trackPageViews />
 
       <ColorSwitcher />
+      <GoogleAnalytics
+        measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}
+      />
 
       <Component {...pageProps} />
     </>

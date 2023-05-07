@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@bradgarropy/next-google-analytics": "^1.0.2",
     "@emailjs/browser": "^3.6.2",
     "@emotion/react": "^11.10.8",
     "@emotion/styled": "^11.10.8",
@@ -18,7 +19,6 @@
     "gray-matter": "^4.0.3",
     "luxon": "^3.0.1",
     "next": "12.1.6",
-    "nextjs-google-analytics": "^2.3.3",
     "path": "^0.12.7",
     "qs": "^6.11.1",
     "react": "18.2.0",
